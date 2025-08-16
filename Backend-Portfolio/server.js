@@ -13,8 +13,18 @@ require('dotenv').config(); // Load environment variables
 // Server setup
 const app = express();
 // app.use(cors());
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
+
 app.use(cors({
-  origin: 'http://localhost:3000', // Allow requests from React (localhost:3000)
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 
 app.use(express.json());

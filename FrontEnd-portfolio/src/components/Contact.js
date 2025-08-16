@@ -26,7 +26,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("https://tushar-portfolio-drab.vercel.app/contact", {
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/contact`, {
       method: "POST",
       body: JSON.stringify(formDetails),
       headers: {
