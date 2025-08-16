@@ -467,6 +467,21 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
+/* Mobile fix */
+@media (max-width: 768px) {
+  .project .nav.nav-pills .nav-link.active::before {
+    width: auto !important;
+    /* or 100% of the text, not the whole row */
+  }
+
+  .project .nav.nav-pills .nav-link.active {
+    border-width: 2px;
+    /* make it visible but not stretched */
+    border-radius: 6px;
+    /* keep it clean on mobile */
+  }
+}
+
 .nav-link#projects-tabs-tab-first {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 55px 0px 0px 55px;
@@ -551,6 +566,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   background: #fff;
+}
+
+/* Responsive fix for mobile */
+@media (max-width: 600px) {
+  .capgemini-experience-img {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    border-radius: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /************ Projects Css ************/
