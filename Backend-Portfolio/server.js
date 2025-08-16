@@ -14,7 +14,7 @@ require('dotenv').config(); // Load environment variables
 const app = express();
 // app.use(cors());
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGIN,// Allow requests from React (localhost:3000)
+  origin: 'https://tusharmalviya-portfolio.vercel.app',// Allow requests from React (localhost:3000)
 }));
 
 app.use(express.json());
